@@ -1,6 +1,6 @@
 # a10UI
 
-# steps
+# steps to install the appliation.
 
 ```
 npm install
