@@ -2,89 +2,82 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-        this.state = {
-          todos:[],
-          title:'Share Your Quotes Here',
-          counter:0
-        };
+    this.state = {
+      todos: [],
+      title: 'Share Your Quotes Here',
+      counter: 0,
+    };
   }
 
-  addTodo(e){
-    alert()
+  addTodo(e) {
+    alert();
     e.preventDefault();
-    let author = this.refs.author.value;
-    let quote = this.refs.quote.value;
+    const author = this.refs.author.value;
+    const quote = this.refs.quote.value;
     let counter = this.state.counter;
-    
-    
-    let todo = {
-      author,quote,counter
+
+
+    const todo = {
+      author, quote, counter,
     };
 
     counter++;
 
-    let todos = this.state.todos;
+    const todos = this.state.todos;
 
     todos.push(todo);
 
     this.setState({
-      todos: todos,
-      counter:counter
+      todos,
+      counter,
     });
 
     this.refs.todoForm.reset();
   }
 
-  removeQuote(index){
+  removeQuote(index) {
+    const newTodos = [...this.state.todos];
 
-    let newTodos = [...this.state.todos];
-    
-    newTodos.splice(index,1);
-      this.setState({
-        todos: newTodos
-      });
-      
+    newTodos.splice(index, 1);
+    this.setState({
+      todos: newTodos,
+    });
   }
-
- 
 
 
   render() {
-    let title = this.state.title;
-    let todos = this.state.todos;
+    const title = this.state.title;
+    const todos = this.state.todos;
     return (
       <div >
-        <form ref = "todoForm" className="App">
-        <h1>{title}</h1>
-        <label>Author  </label>
-          <input type = "text" ref = "author" placeholder = "Enter Author Name" autoFocus/>
-        <br/><br/>
+        <form ref="todoForm" className="App">
+          <h1>{title}</h1>
+          <label>Author  </label>
+          <input type="text" ref="author" placeholder="Enter Author Name" autoFocus />
+          <br /><br />
 
-        <label>Quote </label>
-          <textarea ref = "quote" placeholder = "Enter quote"/>
-        <br/><br/>
+          <label>Quote </label>
+          <textarea ref="quote" placeholder="Enter quote" />
+          <br /><br />
 
-          <button className="addBtn" onClick = {this.addTodo}>Add</button>
+          <button className="addBtn" onClick={this.addTodo}>Add</button>
         </form>
 
-          <ul>
-            {this.state.todos.map((todo,index)=>{
-              return (
+        <ul>
+          {this.state.todos.map((todo, index) => (
 
-                <li className="list_wrap" key={todo.counter}><div className="myListdata">"{todo.quote}" !</div> 
-                <div className="authorsign"> - {todo.author}</div>
-                <div className="myBtnrmv">
-                  <button className="remove_btn" onClick = {()=>this.removeQuote(index)}>Remove</button>
-                </div>
-                </li>
-              )
-            })}
+            <li className="list_wrap" key={todo.counter}><div className="myListdata">"{todo.quote}" !</div>
+              <div className="authorsign"> - {todo.author}</div>
+              <div className="myBtnrmv">
+                <button className="remove_btn" onClick={() => this.removeQuote(index)}>Remove</button>
+              </div>
+            </li>
+              ))}
 
-            <div>
-            </div>
-          </ul>
+          <div />
+        </ul>
       </div>
     );
   }

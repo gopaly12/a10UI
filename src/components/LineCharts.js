@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const LineCharts = () => (
-    <div>
+  <div>
         This is from LineCharts component
-       
-    </div>
-)
 
-export default LineCharts
+  </div>
+);
+
+export default LineCharts;
