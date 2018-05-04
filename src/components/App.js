@@ -12,7 +12,7 @@ class App extends React.Component {
   }
 
   addTodo(e) {
-    alert();
+    
     e.preventDefault();
     const author = this.refs.author.value;
     const quote = this.refs.quote.value;
