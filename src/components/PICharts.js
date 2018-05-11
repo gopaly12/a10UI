@@ -1,22 +1,44 @@
-import React from 'react'
-class ServiceList extends React.Component{
-    render(){
-        return <div> PI PICharts</div>
-    }
-}
-  
-class PICharts extends React.Component{
-     
-    render(){
-      
+
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import * as Highcharts from "highcharts";
+
+console.log('shamim')
+
+
+
+let myChart = Highcharts.chart({
+    'chart': {
+        renderTo: 'main',
+        type: 'pie'
+    },
+    'title': {
+        text: 'Fruit Consumption'
+    },
+    "xAxis": {
+        categories: ['Apples', 'Bananas', 'Oranges']
+    },
+    'yAxis': {
+        title: {
+            text: 'Fruit eaten'
+        }
+    },
+    'series': [{
+        name: 'Jane',
+        data: [1, 0, 4]
+    }, {
+        name: 'John',
+        data: [5, 7, 3]
+    }]
+});
+console.log(myChart)
+export default class PICharts extends React.Component {
+
+    render() {
         return (
-            <div> 
-                <h1>Hello 1111{this.props.name}!</h1>
+            <div id="main">
+                {myChart}
             </div>
         )
     }
 }
-
-
-export default PICharts
-  
