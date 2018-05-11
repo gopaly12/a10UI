@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 const Maps = () => (
-    <div>
+  <div>
         This is from Maps component
-    </div>
-)
+  </div>
+);
 
-export default Maps
+export default Maps;
